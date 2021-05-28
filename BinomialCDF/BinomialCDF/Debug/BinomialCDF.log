@@ -1,0 +1,6 @@
+﻿  BinomialCDF.cpp
+C:\Users\fpy90\OneDrive\桌面\機率\BinomialCDF\BinomialCDF\BinomialCDF.cpp(17,13): warning C4326: 'main' 的傳回類型應該是 'int'，而非 'void'
+C:\Users\fpy90\OneDrive\桌面\機率\BinomialCDF\BinomialCDF\BinomialCDF.cpp(65,47): warning C4244: '引數': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\fpy90\OneDrive\桌面\機率\BinomialCDF\BinomialCDF\BinomialCDF.cpp(65,29): warning C4244: '引數': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\fpy90\OneDrive\桌面\機率\BinomialCDF\BinomialCDF\BinomialCDF.cpp(65,19): warning C4244: '引數': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  BinomialCDF.vcxproj -> C:\Users\fpy90\OneDrive\桌面\機率\BinomialCDF\Debug\BinomialCDF.exe
