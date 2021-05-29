@@ -2,14 +2,15 @@
 #include <math.h>
 #include <graphics.h> 
 #include <conio.h>
-#include <iostream> 
+#include <iostream>
 
 void BINCDF(double, double);
 void BINPMF(double, double);
 double PMFCount(double, double, double);
 double C(double, double);
 double factorial(double);
-void graph(double, double[]);
+void graph(double, double[]); 
+void cleanData();
 
 double CDF[100] = { 0.0 };
 double PMF[100] = { 0.0 };
@@ -17,24 +18,30 @@ double PMF[100] = { 0.0 };
 void main() {
 	double p;
 	double n;
+	int key = 1;
+	while (key) {
+		cleanData();
+		printf("輸入p : ");
+		scanf_s("%lf", &p);
 
-	printf("輸入p的機率 :");
-	scanf_s("%lf", &p);
+		printf("輸入n : ");
+		scanf_s("%lf", &n);
 
-	printf("輸入n :");
-	scanf_s("%lf", &n);
+		puts("PMF : ");
+		BINPMF(p, n);
+		system("pause");
+		graph(n, PMF);
 
-	puts("PMF : ");
-	BINPMF(p, n);
-	system("pause");
-	graph(n, PMF);
+		system("pause");
 
-	system("pause");
+		puts("CDF : ");
+		BINCDF(p, n);
+		system("pause");
+		graph(n, CDF);
 
-	puts("CDF : ");
-	BINCDF(p, n);
-	system("pause");
-	graph(n, CDF);
+		puts("(1)try again\t(2)exit");
+		scanf_s("%d", &key);
+	}
 }
 
 void BINCDF(double p, double n) {
@@ -77,8 +84,19 @@ void graph(double n, double array[]) {
 	line(50, 50, 50, 500);
 	line(50, 500, 1000, 500);
 	for (int i = 0; i < (int)n; i++) {
-		circle(i * temp + 50, 500 - array[i] * 400, 1.5);
+		circle(i * temp + 50, 500 - array[i] * 400, 2);
+		line(i * temp + 50, 503, i * temp + 50, 497);
+		line(i * temp + 50, 500 - array[i] * 400, i * temp + 50, 500);
 	}
+	for (int k = 40; k <= 400; k +=40) {
+		line(47, 500 - k, 53, 500 - k);
+	}
+	
 	system("pause");
 	closegraph();
+}
+
+void cleanData() {
+	double CDF[100] = { 0.0 };
+	double PMF[100] = { 0.0 };
 }
