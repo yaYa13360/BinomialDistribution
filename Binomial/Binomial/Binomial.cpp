@@ -19,7 +19,7 @@ void main() {
 	double p;
 	double n;
 	int key = 1;
-	while (key) {
+	while (key == 1) {
 		cleanData();
 		printf("¿é¤Jp : ");
 		scanf_s("%lf", &p);
@@ -83,7 +83,7 @@ void graph(double n, double array[]) {
 	initgraph(1050, 550);
 	line(50, 50, 50, 500);
 	line(50, 500, 1000, 500);
-	for (int i = 0; i < (int)n; i++) {
+	for (int i = 0; i <= (int)n; i++) {
 		circle(i * temp + 50, 500 - array[i] * 400, 2);
 		line(i * temp + 50, 503, i * temp + 50, 497);
 		line(i * temp + 50, 500 - array[i] * 400, i * temp + 50, 500);
