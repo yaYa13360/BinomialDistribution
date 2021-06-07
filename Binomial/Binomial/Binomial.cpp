@@ -9,8 +9,10 @@ void BINPMF(double, double);
 double PMFCount(double, double, double);
 double C(double, double);
 double factorial(double);
-void graph(double, double[]); 
+void graph(double, double[]);
 void cleanData();
+void countEx(double p, double n);
+void countVarx(double p, double n);
 
 double CDF[100] = { 0.0 };
 double PMF[100] = { 0.0 };
@@ -39,11 +41,23 @@ void main() {
 		system("pause");
 		graph(n, CDF);
 
+		printf("E[x] = ");
+		countEx(p, n);
+		printf("\nVar[x] = ");
+		countVarx(p, n);
+		system("pause");
+
 		puts("(1)try again\t(2)exit");
 		scanf_s("%d", &key);
 	}
 }
 
+void countEx(double p, double n) {
+	printf("%lf", n * p);
+}
+void countVarx(double p, double n) {
+	printf("%lf", n * p * (1 - p));
+}
 void BINCDF(double p, double n) {
 	double cdf = 0.0;
 	int j = 0;
@@ -83,15 +97,14 @@ void graph(double n, double array[]) {
 	initgraph(1050, 550);
 	line(50, 50, 50, 500);
 	line(50, 500, 1000, 500);
-	for (int i = 0; i <= (int)n; i++) {
+	for (int i = 0; i < (int)n; i++) {
 		circle(i * temp + 50, 500 - array[i] * 400, 2);
-		line(i * temp + 50, 503, i * temp + 50, 497);
 		line(i * temp + 50, 500 - array[i] * 400, i * temp + 50, 500);
 	}
-	for (int k = 40; k <= 400; k +=40) {
+	for (int k = 40; k <= 400; k += 40) {
 		line(47, 500 - k, 53, 500 - k);
 	}
-	
+
 	system("pause");
 	closegraph();
 }
